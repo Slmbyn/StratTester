@@ -7,10 +7,10 @@ Python |
 Javascript |
 pandas 
 # ERD
-![ERD Chart](ERD.png)
+![ERD Chart](README_images/ERD.png)
 
 # RESTful Routing Chart
-![RESTful Routing Chart](RESTfulrouting.png)
+![RESTful Routing Chart](README_images/RESTfulchart.png)
 
 # Wireframes
 ![Home Page](Wireframes/home.png)
@@ -19,7 +19,7 @@ pandas
 ![Past Tests](Wireframes/pasttests.png)
 # User Stories
 - AAU I want to be able to view stock related news
-- AAU I want to test various trading strategies
+- AAU I want to be able to select a stock, trading strategy and date then see what the result (profit/loss) would have been
 - AAU I want to view my past tests
 
 # Goals
