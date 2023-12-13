@@ -13,6 +13,10 @@ pandas
 ![RESTful Routing Chart](RESTfulrouting.png)
 
 # Wireframes
+![Home Page](Wireframes/home.png)
+![Create Test](Wireframes/createtest.png)
+![Test Result](Wireframes/testresult.png)
+![Past Tests](Wireframes/pasttests.png)
 # User Stories
 # Goals
 ## MVP
