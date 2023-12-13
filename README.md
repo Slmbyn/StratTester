@@ -18,6 +18,23 @@ pandas
 ![Test Result](Wireframes/testresult.png)
 ![Past Tests](Wireframes/pasttests.png)
 # User Stories
+- AAU I want to be able to view stock related news
+- AAU I want to test various trading strategies
+- AAU I want to view my past tests
+
 # Goals
 ## MVP
+- Display Stock News on home page
+- Create a new test
+- View data/results of that test
+- View past tests
+
 ## Stretch Goals
+- Test over multiple days
+- Choose number of shares to trade with
+- Display a chart of the stock tested on the day tested
+- Let user define their own Stop Loss and Price Target
+- Filter news by ticker
+- Filter and Sort users past tests
+- Aggregate data of users past tests
+- Convert JavaScript -> TypeScript
