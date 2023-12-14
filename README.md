@@ -5,6 +5,7 @@ Django |
 React |
 Python |
 Javascript |
+PostgreSQL |
 pandas 
 # ERD
 ![ERD Chart](README_images/ERD.png)

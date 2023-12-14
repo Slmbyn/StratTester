@@ -1,15 +1,15 @@
 from django.db import models
 
-STRATEGIES = (
-    ('5','5min ORB'),
-    ('SR','S/R Break'),
-    ('EC','10/20 ema cross')
-)
+STRATEGIES = [
+    ('5min ORB', '5min ORB'),
+    ('S/R Break','S/R Break'),
+    ('10/20 ema cross','10/20 ema cross')
+]
 
 # Create your models here.
 class Test(models.Model):
     strategy = models.CharField(
-        max_length=2,
+        max_length=200,
         choices=STRATEGIES)
     ticker = models.CharField(max_length=4)
     date = models.DateField()
