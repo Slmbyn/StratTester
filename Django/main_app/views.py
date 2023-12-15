@@ -19,7 +19,8 @@ def test_strategy(request):
     if request.method == 'POST':
 # take request & create the test instance in the db
         test_data = JSONParser().parse(request)
-        test_serializer = TestSerializer(test_data)
+        test_serializer = TestSerializer(data=test_data)
+        print('THIS IS THE TEST DATA', test_serializer)
         if test_serializer.is_valid():
             test_serializer.save()
             return JsonResponse(test_serializer.data, status=status.HTTP_201_CREATED)

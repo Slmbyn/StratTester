@@ -27,7 +27,7 @@ export default function Result(){
     return(
         <>
         <h1>Tests:</h1>
-        <p>
+        <div>
             {test.map((e) => {
                 return(
                     <div>
@@ -37,9 +37,9 @@ export default function Result(){
                     </div>
                 )
             })}
-        </p>
+        </div>
         <h1>Results:</h1>
-        <p>
+        <div>
             {result.map((e) => {
                 return(
                     <div>
@@ -52,7 +52,7 @@ export default function Result(){
                     </div>
                 )
             })}
-        </p>
+        </div>
         </>
     )
 }
