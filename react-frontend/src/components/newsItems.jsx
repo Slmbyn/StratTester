@@ -8,7 +8,9 @@ export default function NewsItem({ article }){
         <>
             <h4>Title: {title}</h4>
             <h5>{source}</h5>
-            <a href={articleURL}> Read More</a>
+            <a href={articleURL} target="_blank" rel="noopener noreferrer">
+            Read more
+            </a>
             <p>{content}</p>
 
         </>
