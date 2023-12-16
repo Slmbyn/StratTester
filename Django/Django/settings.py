@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,6 +28,9 @@ SECRET_KEY = 'django-insecure-6=45x55+q%q1qkih0&kxabe#fy=c+1_ud0-b$!gk%s@i&oa27^
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+# Stock API Key setup
+STOCK_API_KEY = config('STOCK_API_KEY')
 
 
 # Application definition

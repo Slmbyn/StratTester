@@ -26,5 +26,6 @@ router.register(r'results', views.ResultView )
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('', include('main_app.urls'))
+    path('', include('main_app.urls')),
+    path('stock_api/', views.stock_data, name='stock_data')
 ]

@@ -4,7 +4,13 @@ from .serializers import TestSerializer, ResultSerializer
 from .models import Test, Result
 from rest_framework.decorators import api_view
 from django.http.response import JsonResponse
-from rest_framework.parsers import JSONParser 
+from rest_framework.parsers import JSONParser
+import requests
+from decouple import config
+
+STOCK_API_KEY = config('STOCK_API_KEY')
+
+
 
 class TestView(viewsets.ModelViewSet):
     serializer_class = TestSerializer
@@ -13,6 +19,16 @@ class TestView(viewsets.ModelViewSet):
 class ResultView(viewsets.ModelViewSet):
     serializer_class = ResultSerializer
     queryset = Result.objects.all()
+
+def stock_data(request):
+    ticker = Test.ticker
+    date = Test.date
+    url = f'https://api.polygon.io/v2/aggs/ticker/{ticker}/range/5/minute/{date}/{date}?adjusted=true&sort=asc&limit=120&apiKey={STOCK_API_KEY}'
+    print('THE URL IS:::', url)
+    response = requests.get(url)
+    print('THE RESPONSE IS:::', response)
+    data = response.json()
+    print('THE DATA IS:', data)
 
 @api_view(['POST'])
 def test_strategy(request):
