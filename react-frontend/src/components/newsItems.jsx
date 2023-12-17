@@ -20,32 +20,3 @@ export default function NewsItem({ article }) {
     </div>
   );
 }
-
-
-
-
-
-// import { Link } from "react-router-dom";
-
-// export default function NewsItem({ article }){
-//     const source = article.source.name;
-//     const title = article.title;
-//     const articleURL = article.url;
-//     const content = article.content
-//     return (
-//         <div className="container">
-//                 <div className="card"> 
-//                     <Link to={articleURL}>
-//                         <div className="card-body">
-//                             <h4 className="card-header">{title}</h4>
-//                             {/* <a href={articleURL} target="_blank" rel="noopener noreferrer">
-//                             Read Full Article
-//                             </a> */}
-//                             <p className="card-text">{content}</p>
-                            
-//                         </div>
-//                     </Link>
-//                 </div>
-//             </div>
-//     )
-// }
