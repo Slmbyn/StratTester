@@ -29,11 +29,11 @@ export default function Home() {
   }, [topNewsURL]);
 
   return (
-    <>
+    <div className="vstack gap-3">
       {newsArticles.map((article, index) => (
         <NewsItem key={index} article={article} />
       ))}
-    </>
+    </div>
   );
 }
 

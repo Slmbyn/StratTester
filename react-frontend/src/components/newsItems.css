@@ -1,4 +1,30 @@
-a, h4, p {
-    text-decoration: none;
-    color: beige;
-}
+* {
+    box-sizing: border-box;
+  }
+
+    a, h4, p {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+    }
+    a {
+        border-radius: 5px !important;
+        box-shadow: none !important; /* Remove any box shadow that might look like a border */
+    }
+    .card {
+        border: 0 !important; /* Use !important to ensure the style is applied */
+        box-shadow: none !important; /* Remove any box shadow that might look like a border */
+        border-radius: 5px !important;
+    }
+    
+    .card-body {
+        box-shadow: none !important; /* Remove any box shadow that might look like a border */
+        border-radius: 5px !important;
+        background-color: rgb(29, 28, 28);
+        transition: box-shadow 0.3s ease;
+    }
+
+    .card-body:hover {
+        cursor: pointer;
+        transform: scale(1.03);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }

@@ -9,7 +9,7 @@ export default function NewsItem({ article }) {
 
   return (
     <div className="container dark-bg">
-      <div className="card text-bg-dark">
+      <div className="card">
         <a href={articleURL} target="_blank" rel="noopener noreferrer">
           <div className="card-body">
             <h4 className="card-header">{title}</h4>
