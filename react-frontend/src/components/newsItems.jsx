@@ -6,10 +6,9 @@ export default function NewsItem({ article }){
     const content = article.content
     return (
         <>
-            <h4>Title: {title}</h4>
-            <h5>{source}</h5>
+            <h4>{title}</h4>
             <a href={articleURL} target="_blank" rel="noopener noreferrer">
-            Read more
+            Read Full Article
             </a>
             <p>{content}</p>
 
