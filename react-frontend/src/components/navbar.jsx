@@ -1,21 +1,25 @@
+import React from 'react';
+import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Navbar() {
-    return(
-        <nav className='navbar navbar-expand' style={{ backgroundColor: 'grey' }}>
-            <div className="container">
-                <ul className='navbar-nav'>
-                    <li className="nav-item">
-                        <a href="/">Home</a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="/test">Test Strategy</a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="result">See Result</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    )
+export default function CustomNavbar() {
+  return (
+    <Navbar bg="dark" variant="dark" expand="md" className="justify-content-end">
+      <Navbar.Toggle aria-controls="navbar-nav" />
+      <Navbar.Collapse id="navbar-nav" className="justify-content-end">
+        <Nav className="ml-auto" navbar>
+          <Nav.Link as={Link} to="/">
+            Home
+          </Nav.Link>
+          <Nav.Link as={Link} to="/test">
+            Test Strategy
+          </Nav.Link>
+          <Nav.Link as={Link} to="/result">
+            See Result
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
 }
