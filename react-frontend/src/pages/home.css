@@ -1,3 +1,20 @@
-.container {
+/* .container {
     margin-top: 10%;
+} */
+
+.heading-container {
+    justify-content: center;
+}
+
+.title, .subtitle, .news-header {
+    color: white;
+    text-align: center;
+}
+
+.title {
+    margin-top: 3rem;
+}
+
+.subtitle {
+    margin-bottom: 3rem;
 }

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import {createTest, getAll, getOne} from "../services/test.service"
 import { useNavigate } from "react-router-dom";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
 
 export default function Test(){
     const navigate = useNavigate();
@@ -38,27 +39,52 @@ console.log('before handle submit:',test)
         }
     }
     return (
-        <>
-        <h1>Test A Strategy!</h1>
-        <form onSubmit={handleSubmit}>
-            <select name="strategy" value={test.strategy} onChange={handleInputChange}>
+        <Container className="mt-5">
+      <Row className="justify-content-md-center">
+        <Col xs={12} md={6}>
+          <h1 className="text-center text-white">Test A Strategy!</h1>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="strategy">
+              <Form.Label>Strategy</Form.Label>
+              <Form.Control
+                as="select"
+                name="strategy"
+                value={test.strategy}
+                onChange={handleInputChange}
+              >
                 <option value="5min ORB">5min ORB</option>
                 <option value="S/R Break">S/R Break</option>
                 <option value="10/20 ema cross">10/20 ema cross</option>
-            </select> <br />
-            <input type="text" 
-            placeholder="Enter Stock Ticker"
-            name="ticker"
-            value={test.ticker}
-            onChange={handleInputChange}
-            /><br />
-            <input 
-            type="date" 
-            name="date"
-            value={test.date}
-            onChange={handleInputChange}/><br />
-            <button type="submit"> Test Strategy </button>
-        </form>
-        </>
+              </Form.Control>
+            </Form.Group>
+            <Form.Group controlId="ticker">
+              <Form.Label>Stock Ticker</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Stock Ticker"
+                name="ticker"
+                value={test.ticker}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="date" className="mb-3">
+              <Form.Label>Date</Form.Label>
+              <Form.Control
+                type="date"
+                name="date"
+                value={test.date}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <div className="d-grid">
+              <Button variant="primary" type="submit" className="w-50 mx-auto">
+                Test Strategy
+              </Button>
+            </div>
+          </Form>
+        </Col>
+      </Row>
+      <h1 className="text-center text-white mt-5">RESULTS FROM THE TEST WILL GO DOWN HERE:</h1>
+    </Container>
     )
 }

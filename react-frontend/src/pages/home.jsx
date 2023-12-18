@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import NewsItem from "../components/newsItems";
-// import './home.css'
+import './home.css'
 
 const ROOT_URL = 'https://newsapi.org/v2';
 const newsAPIKey = process.env.REACT_APP_NEWS_API_KEY;
@@ -30,13 +30,20 @@ export default function Home() {
   }, [topNewsURL]);
 
   return (
-    <div className="container">
-      <div className="vstack gap-3">
-        {newsArticles.map((article, index) => (
-          <NewsItem key={index} article={article} />
-        ))}
+    <>
+      <div className="heading-container">
+        <h1 className="title"> Strat-Tester</h1>
+        <h3 className="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, sequi!</h3>
       </div>
-    </div>
+      <div className="container">
+        <h4 className="news-header">Recent News</h4>
+        <div className="vstack gap-3">
+          {newsArticles.map((article, index) => (
+            <NewsItem key={index} article={article} />
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
 
