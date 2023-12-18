@@ -34,7 +34,7 @@ console.log('before handle submit:',test)
             navigate('/result')
         } catch (err) {
             console.log('this isnt working')
-            console.log(err)
+            console.log('React Error Message:', err)
         }
     }
     return (
