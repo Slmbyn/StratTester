@@ -18,11 +18,11 @@ class Test(models.Model):
         return f'{self.ticker},{self.date}'
 
 class Result(models.Model):
-    PL_percent = models.IntegerField()
-    PL_abs = models.IntegerField()
+    PL_percent = models.DecimalField(max_digits=10, decimal_places=4)
+    PL_abs = models.DecimalField(max_digits=10, decimal_places=2)
     volume = models.IntegerField()
-    entry_price = models.IntegerField()
-    exit_price = models.IntegerField()
+    entry_price = models.DecimalField(max_digits=10, decimal_places=2)
+    exit_price = models.DecimalField(max_digits=10, decimal_places=2)
     test = models.ForeignKey(Test, on_delete=models.CASCADE)
 
     def __str__(self):
