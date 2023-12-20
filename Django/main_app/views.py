@@ -1,16 +1,65 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework import viewsets, status
-from .serializers import TestSerializer, ResultSerializer
+from .serializers import TestSerializer, ResultSerializer, UserSerializer
 from .models import Test, Result
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser
 import requests
 from decouple import config
 from .strategies import orb_strategy
 from rest_framework.response import Response
+from django.contrib.auth import authenticate, login, logout
+from rest_framework.authtoken.models import Token
+from rest_framework.permissions import IsAuthenticated
+
 
 STOCK_API_KEY = config('STOCK_API_KEY')
+
+@api_view(['POST'])
+def login_view(request):
+    username = request.data.get('username')
+    password = request.data.get('password')
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({'token': token.key}, status=status.HTTP_200_OK)
+    else:
+        return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+
+@api_view(['POST'])
+def register_view(request):
+    print('request is:', request.data)
+    serializer = UserSerializer(data=request.data)
+    if serializer.is_valid():
+        user = serializer.save()
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({'token': token.key}, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def logout_view(request):
+    request.auth.delete()
+    logout(request)
+    return Response({'message': 'Successfully logged out.'}, status=status.HTTP_200_OK)
+
+
+# def login_view(request):
+#     if request.method == 'POST':
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
+#         # authenticate
+#         user = authenticate(request, username=username, password=password)
+#         if user is None:
+#             context = {'error': 'Invalid username or password'}
+#         login(request, user)
+#         # add a line here sending user info to React
+
+
+
 
 
 

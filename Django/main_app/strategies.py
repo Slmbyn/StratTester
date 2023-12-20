@@ -8,7 +8,7 @@ from rest_framework.parsers import JSONParser
 import requests
 from decouple import config
 from rest_framework.response import Response
-from .test_data import MOCK_DATA
+
 
 STOCK_API_KEY = config('STOCK_API_KEY')
 

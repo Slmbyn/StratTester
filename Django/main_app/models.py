@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 STRATEGIES = [
     ('5min ORB', '5min ORB'),
@@ -24,6 +25,7 @@ class Result(models.Model):
     entry_price = models.DecimalField(max_digits=10, decimal_places=2)
     exit_price = models.DecimalField(max_digits=10, decimal_places=2)
     test = models.ForeignKey(Test, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.test.strategy},{self.PL_percent}'
