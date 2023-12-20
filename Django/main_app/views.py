@@ -18,9 +18,11 @@ STOCK_API_KEY = config('STOCK_API_KEY')
 
 @api_view(['POST'])
 def login_view(request):
-    username = request.data.get('username')
+    print('login request is:', request.data)
+    # username = request.data.get('username')
+    email = request.data.get('email')
     password = request.data.get('password')
-    user = authenticate(request, username=username, password=password)
+    user = authenticate(request, email=email, password=password)
     if user is not None:
         login(request, user)
         token, created = Token.objects.get_or_create(user=user)
