@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from rest_framework import viewsets, status
 from .serializers import TestSerializer, ResultSerializer, UserSerializer
-from .models import Test, Result
+from .models import Test, Result, User
 from rest_framework.decorators import api_view, permission_classes
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser

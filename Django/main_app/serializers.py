@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from .models import Test, Result
-from django.contrib.auth.models import User
+from .models import Test, Result, User
+from .models import User
 
 class TestSerializer(serializers.ModelSerializer):
     class Meta:
