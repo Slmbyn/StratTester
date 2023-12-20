@@ -13,9 +13,9 @@ const CustomNavbar = ({ authenticated, username }) => {
 
   return (
     <Navbar bg="dark" variant="dark" expand="md" className="justify-content-between">
-      <Navbar.Brand as={Link} to="/">
+      {/* <Navbar.Brand as={Link} to="/">
         {authenticated ? `Hello, ${username}` : 'StratTester'}
-      </Navbar.Brand>
+      </Navbar.Brand> */}
       <Navbar.Toggle aria-controls="navbar-nav" />
       <Navbar.Collapse id="navbar-nav" className="justify-content-end">
         <Nav className="ml-auto" navbar>

@@ -23,7 +23,7 @@ export default function RegisterUser() {
 
       //Log in the user after registration
       const loginResponse = await axios.post('http://localhost:8000/login/', {
-        username: newUser.username,
+        email: newUser.email,
         password: newUser.password,
       });
       console.log('Login response:', loginResponse.data);

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function Login () {
     const navigate = useNavigate();
   const [user, setuser] = useState({
-    username: '',
+    email: '',
     password: '',
   });
 
@@ -29,8 +29,8 @@ export default function Login () {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>Username: </label>
-      <input type="text" name="username" onChange={handleChange} required />
+      <label>Email: </label>
+      <input type="text" name="email" onChange={handleChange} required />
       <br />
       <label>Password: </label>
       <input type="password" name="password" onChange={handleChange} required />

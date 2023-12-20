@@ -20,14 +20,6 @@ function App() {
     }
   }, []);
 
-  const handleLogin = () => {
-    setAuthenticated(true);
-  };
-
-  const handleLogout = () => {
-    setAuthenticated(false);
-  };
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -37,14 +29,8 @@ function App() {
           <Route path='/test' element={ <Test />} />
           <Route path="/result" element={authenticated ? <Result /> : <Navigate to="/login" />} />
           <Route path="/register" element={<Register />} />
-          <Route
-            path="/login"
-            element={<Login onLogin={handleLogin} />}
-          />
-          <Route
-            path="/logout"
-            element={<Logout onLogout={handleLogout} />}
-          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       </BrowserRouter>
     </div>
