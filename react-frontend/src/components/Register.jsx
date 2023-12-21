@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
-export default function RegisterUser() {
+
+export default function RegisterUser({ setUser }) {
   const navigate = useNavigate();
   const [newUser, setNewUser] = useState({
     username: '',
@@ -20,13 +21,14 @@ export default function RegisterUser() {
       // Register the user
       const registerResponse = await axios.post('http://localhost:8000/register/', newUser);
       console.log('Registration response:', registerResponse.data);
-
       //Log in the user after registration
       const loginResponse = await axios.post('http://localhost:8000/login/', {
         email: newUser.email,
         password: newUser.password,
       });
-      console.log('Login response:', loginResponse.data);
+      console.log('Login response.data:', loginResponse.data);
+      console.log('Login response:', loginResponse);
+      setUser(loginResponse.data.user_id)
 
       // Store the token in local storage
       localStorage.setItem('token', loginResponse.data.token);

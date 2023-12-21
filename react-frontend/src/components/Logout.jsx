@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Logout () {
     const navigate = useNavigate();
+
     const handleLogout = async () => {
         try {
             await axios.post('http://localhost:8000/logout/', null, {

@@ -1,15 +1,31 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-const CustomNavbar = ({ authenticated, username }) => {
+const CustomNavbar = ({ authenticated }) => {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    // Perform logout actions, clear token, and redirect to home
-    localStorage.removeItem('token');
-    navigate('/');
-  };
+  // const handleLogout = () => {
+  //   localStorage.removeItem('token');
+  //   navigate('/');
+  // };
+
+  const handleLogout = async () => {
+    try {
+        await axios.post('http://localhost:8000/logout/', null, {
+            headers: {
+            Authorization: `Token ${localStorage.getItem('token')}`,
+            },
+        });
+        // Clear token from local storage or state
+        localStorage.removeItem('token');
+        navigate('/')
+    } catch (error) {
+        console.error('Logout error:', error);
+    }
+};
+
 
   return (
     <Navbar bg="dark" variant="dark" expand="md" className="justify-content-between">

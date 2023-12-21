@@ -8,9 +8,11 @@ import Result from './pages/result';
 import Register from './components/Register';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import { getUser, getToken } from './services/user.service';
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
+  const [user, setUser] = useState(null)
 
   // Check if the user is authenticated on component mount
   useEffect(() => {
@@ -18,7 +20,7 @@ function App() {
     if (token) {
       setAuthenticated(true);
     }
-  }, []);
+  }, [user]);
 
   return (
     <div className="App">
@@ -26,10 +28,10 @@ function App() {
         <Navbar authenticated={authenticated} />
         <Routes>
           <Route path='/' element={ <Home />} />
-          <Route path='/test' element={ <Test />} />
+          <Route path='/test' element={ <Test authenticated={ authenticated } />} />
           <Route path="/result" element={authenticated ? <Result /> : <Navigate to="/login" />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register setUser={setUser}/>} />
+          <Route path="/login" element={<Login setUser={setUser}/>} />
           <Route path="/logout" element={<Logout />} />
         </Routes>
       </BrowserRouter>

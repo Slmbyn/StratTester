@@ -3,13 +3,16 @@ import {createTest, getAll, getOne} from "../services/test.service"
 import { useNavigate } from "react-router-dom";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 
-export default function Test(){
+export default function Test({ user }){
     const navigate = useNavigate();
     const [test, setTest] = useState({
+      testData: {
         strategy: '',
         ticker: '',
         date: ''
-    })
+    },
+      userId: user
+  })
 
     const handleInputChange = (evt) => {
         setTest({...test, [evt.target.name]: evt.target.value})

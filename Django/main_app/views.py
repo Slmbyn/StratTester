@@ -26,7 +26,11 @@ def login_view(request):
     if user is not None:
         login(request, user)
         token, created = Token.objects.get_or_create(user=user)
-        return Response({'token': token.key}, status=status.HTTP_200_OK)
+        return Response({
+                'token': token.key,
+                'user_id': user.pk,
+                'email': user.email
+            }, status=status.HTTP_200_OK)
     else:
         return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
@@ -37,7 +41,12 @@ def register_view(request):
     if serializer.is_valid():
         user = serializer.save()
         token, created = Token.objects.get_or_create(user=user)
-        return Response({'token': token.key}, status=status.HTTP_201_CREATED)
+        print('CREATED TOKEN IS:', token)
+        return Response({
+            'token': token.key,
+            'user_id': user.pk,
+            'email': user.email
+        }, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -78,14 +87,21 @@ class ResultView(viewsets.ModelViewSet):
 def test_strategy(request):
     if request.method == 'POST':
         # take request & create the test instance in the db
-        test_data = JSONParser().parse(request)
+        test_data = JSONParser().parse(request['testData'])
+        print('testData is:', test_data)
+        user_data = JSONParser().parse(request['userId'])
+        print('userData is:', user_data)
         test_serializer = TestSerializer(data=test_data)
         if test_serializer.is_valid():
             test_instance = test_serializer.save()
             # invoke trade strategy here
             results = orb_strategy(test_data)
+        # Adds the Test_id to the Result instance
             results['test'] = test_instance.id
             print('RESULT IN VIEW:', results)
+        # Probably a line to add user_id to Result instance
+            results['user'] = user_data.id
+            
             # Save Result to database
             result_serializer = ResultSerializer(data=results)
             print('IS RESULT VALID?', result_serializer.is_valid())
