@@ -33,7 +33,7 @@ export default function Home() {
     <>
       <div className="heading-container">
         <h1 className="title"> Strat-Tester</h1>
-        <h3 className="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, sequi!</h3>
+        <h3 className="subtitle">Effortless Backtesting for Informed Decisions</h3>
       </div>
       <div className="container">
         <h4 className="news-header">Recent News</h4>

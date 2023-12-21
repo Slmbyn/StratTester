@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { Form, Button } from 'react-bootstrap';
 
 
 export default function RegisterUser({ setUser }) {
@@ -41,17 +42,45 @@ export default function RegisterUser({ setUser }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Username: </label>
-      <input type="text" name="username" onChange={handleChange} required />
-      <br />
-      <label>Email: </label>
-      <input type="email" name="email" onChange={handleChange} required />
-      <br />
-      <label>Password: </label>
-      <input type="password" name="password" onChange={handleChange} required />
-      <br />
-      <button type="submit">Register</button>
-    </form>
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      <Form onSubmit={handleSubmit} className="text-light">
+        <h1 className="mb-4 ">Sign-Up</h1>
+        <Form.Group controlId="formUsername">
+          <Form.Label>Username:</Form.Label>
+          <Form.Control
+            type="text"
+            name="username"
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formEmail">
+          <Form.Label>Email:</Form.Label>
+          <Form.Control
+            type="email"
+            name="email"
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formPassword">
+          <Form.Label>Password:</Form.Label>
+          <Form.Control
+            type="password"
+            name="password"
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
+
+        <div className="mt-3 d-flex justify-content-center">
+          <Button variant="primary" type="submit">
+            Register
+          </Button>
+        </div>
+      </Form>
+    </div>
   );
 };

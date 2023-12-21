@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { Form, Button } from 'react-bootstrap';
 
 export default function Login ({ setUser }) {
     const navigate = useNavigate();
@@ -28,15 +29,36 @@ export default function Login ({ setUser }) {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Email: </label>
-      <input type="text" name="email" onChange={handleChange} required />
-      <br />
-      <label>Password: </label>
-      <input type="password" name="password" onChange={handleChange} required />
-      <br />
-      <button type="submit">Login</button>
-    </form>
+    <div className="d-flex flex-column align-items-center justify-content-center vh-100">
+      <h1 className="text-light mb-4">Log In</h1>
+      <Form onSubmit={handleSubmit} className="text-light">
+        <Form.Group controlId="formEmail">
+          <Form.Label>Email:</Form.Label>
+          <Form.Control
+            type="text"
+            name="email"
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formPassword">
+          <Form.Label>Password:</Form.Label>
+          <Form.Control
+            type="password"
+            name="password"
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
+
+        <div className="mt-3 d-flex justify-content-center">
+          <Button variant="primary" type="submit">
+            Login
+          </Button>
+        </div>
+      </Form>
+    </div>
   );
 };
 
