@@ -29,7 +29,7 @@ function App() {
         <Routes>
           <Route path='/' element={ <Home />} />
           <Route path='/test' element={ <Test user={ user } />} />
-          <Route path="/result" element={authenticated ? <Result /> : <Navigate to="/login" />} />
+          <Route path="/result" element={authenticated ? <Result user={user} /> : <Navigate to="/login" />} />
           <Route path="/register" element={<Register setUser={setUser}/>} />
           <Route path="/login" element={<Login setUser={setUser}/>} />
           {/* <Route path="/logout" element={<Logout />} /> */}

@@ -56,7 +56,7 @@ def orb_strategy(test_data):
                 print('CURRENT PRICE', entry_price)
                 for exit_point in api_data['results'][current_index:]:
                     exit_price_candidate = exit_point['c']
-                    if exit_price_candidate >= (entry_price + 0.20):
+                    if exit_price_candidate >= (entry_price + 1):
                         print('EXIT WITH A PROFIT')
                         result_details = {
                             'PL_percent': round(((exit_price_candidate - entry_price) / entry_price),4),
@@ -68,7 +68,7 @@ def orb_strategy(test_data):
                         }
                         print('long-profit RESULT DETAILS ARE:', result_details)
                         return result_details
-                    elif exit_price_candidate <= (entry_price - 0.10):
+                    elif exit_price_candidate <= (entry_price - 0.50):
                         print('CURRENT INDEX', current_index)
                         print('EXIT WITH A LOSS')
                         result_details = {
@@ -99,7 +99,7 @@ def orb_strategy(test_data):
 
                 for exit_point in api_data['results'][current_index:]:
                     exit_price_candidate = exit_point['c']
-                    if exit_price_candidate <= (entry_price - 0.20):
+                    if exit_price_candidate <= (entry_price - 1):
                         print('EXIT WITH A PROFIT')
                         result_details = {
                             'PL_percent': round(((entry_price - exit_price_candidate) / entry_price), 4),
@@ -111,7 +111,7 @@ def orb_strategy(test_data):
                         }
                         print('short-profit RESULT DETAILS ARE:', result_details)
                         return result_details
-                    elif exit_price_candidate >= (entry_price + 0.10):
+                    elif exit_price_candidate >= (entry_price + 0.50):
                         print('EXIT WITH A LOSS')
                         result_details = {
                             'PL_percent': round(((exit_price_candidate - entry_price) / entry_price), 4),
