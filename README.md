@@ -1,12 +1,12 @@
 # Description
-StratTester is a user-friendly web application designed for stock enthusiasts and traders. It provides a seamless platform to stay updated on the latest stock news and test various intra-day trading strategies.
+Meet StratTester, the ultimate ally for traders. Stay informed on stock news while supercharging your strategy testing. Effortlessly save time with streamlined backtesting, optimizing your performance. Elevate your trading game with efficiency and precision—welcome to a new era of strategic success with StratTester.
 # Tech Stack
 Django |
 React |
 Python |
 Javascript |
-PostgreSQL |
-pandas 
+PostgreSQL | 
+React-Bootstrap 
 # ERD
 ![ERD Chart](README_images/ERD.png)
 
@@ -31,13 +31,13 @@ pandas
 - View past tests
 
 ## Stretch Goals
-- Test over multiple days
 - Choose number of shares to trade with
 - Display a chart of the stock tested on the day tested
 - Let user define their own Stop Loss and Price Target
-- Filter news by ticker
-- Filter and Sort users past tests
 - Aggregate data of users past tests
+- Filter and Sort users past tests
+- Test over multiple days
+- Filter news by ticker
 - Convert JavaScript -> TypeScript
 
 ## Daily Sprints

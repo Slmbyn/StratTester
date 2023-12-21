@@ -92,7 +92,6 @@ console.log('before handle submit:',test)
           </Form>
         </Col>
       </Row>
-      <h1 className="text-center text-white mt-5">RESULTS FROM THE TEST WILL GO DOWN HERE:</h1>
     </Container>
     )
 }
