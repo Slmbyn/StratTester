@@ -3,7 +3,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const CustomNavbar = ({ authenticated }) => {
+const CustomNavbar = ({ authenticated, setUser, setAuthenticated }) => {
   const navigate = useNavigate();
 
   // const handleLogout = () => {
@@ -13,12 +13,16 @@ const CustomNavbar = ({ authenticated }) => {
 
   const handleLogout = async () => {
     try {
-        await axios.post('http://localhost:8000/logout/', null, {
+      const token = localStorage.getItem('token');
+      console.log('Authorization Header:', `Token ${token}`);
+        await axios.get('http://localhost:8000/logout/', {
             headers: {
-            Authorization: `Token ${localStorage.getItem('token')}`,
+            Authorization: `Token ${token}`,
             },
         });
         // Clear token from local storage or state
+        setUser(null)
+        setAuthenticated(false)
         localStorage.removeItem('token');
         navigate('/')
     } catch (error) {

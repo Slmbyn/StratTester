@@ -25,14 +25,14 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar authenticated={authenticated} />
+        <Navbar authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} />
         <Routes>
           <Route path='/' element={ <Home />} />
-          <Route path='/test' element={ <Test authenticated={ authenticated } />} />
+          <Route path='/test' element={ <Test user={ user } />} />
           <Route path="/result" element={authenticated ? <Result /> : <Navigate to="/login" />} />
           <Route path="/register" element={<Register setUser={setUser}/>} />
           <Route path="/login" element={<Login setUser={setUser}/>} />
-          <Route path="/logout" element={<Logout />} />
+          {/* <Route path="/logout" element={<Logout />} /> */}
         </Routes>
       </BrowserRouter>
     </div>

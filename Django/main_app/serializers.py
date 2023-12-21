@@ -10,7 +10,7 @@ class TestSerializer(serializers.ModelSerializer):
 class ResultSerializer(serializers.ModelSerializer):
     class Meta:
         model = Result
-        fields = ('id', 'PL_percent', 'PL_abs', 'volume','entry_price','exit_price', 'test')
+        fields = ('id', 'PL_percent', 'PL_abs', 'volume','entry_price','exit_price', 'test', 'user')
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

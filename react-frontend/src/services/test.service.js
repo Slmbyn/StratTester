@@ -8,8 +8,8 @@ import http from '../custom_axios'
         // will need to go into django/urls and add this path
         return http.get(`/tests/{id}`)
     }
-    const createTest = (data) => {
-        return http.post(`/test`, data)
+    const createTest = (data, user) => {
+        return http.post(`/test`, {data, user})
     }
 
     export{createTest, getAll, getOne}

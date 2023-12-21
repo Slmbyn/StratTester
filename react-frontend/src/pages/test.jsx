@@ -6,13 +6,18 @@ import { Form, Button, Container, Row, Col } from "react-bootstrap";
 export default function Test({ user }){
     const navigate = useNavigate();
     const [test, setTest] = useState({
-      testData: {
         strategy: '',
         ticker: '',
         date: ''
-    },
-      userId: user
-  })
+    })
+  //   const [test, setTest] = useState({
+  //     testData: {
+  //       strategy: '',
+  //       ticker: '',
+  //       date: ''
+  //   },
+  //     userId: user
+  // })
 
     const handleInputChange = (evt) => {
         setTest({...test, [evt.target.name]: evt.target.value})
@@ -28,7 +33,7 @@ console.log('before handle submit:',test)
                 date: test.date
             }
             console.log('data is', data)
-            const response = await createTest(data);
+            const response = await createTest(data, user);
             console.log('Response is:',response)
             setTest({
                 id: response.id,
@@ -52,7 +57,7 @@ console.log('before handle submit:',test)
               <Form.Control
                 as="select"
                 name="strategy"
-                value={test.strategy}
+                // value={test.testData.strategy}
                 onChange={handleInputChange}
               >
                 <option value="5min ORB">5min ORB</option>
@@ -66,7 +71,7 @@ console.log('before handle submit:',test)
                 type="text"
                 placeholder="Enter Stock Ticker"
                 name="ticker"
-                value={test.ticker}
+                // value={test.testData.ticker}
                 onChange={handleInputChange}
               />
             </Form.Group>
@@ -75,7 +80,7 @@ console.log('before handle submit:',test)
               <Form.Control
                 type="date"
                 name="date"
-                value={test.date}
+                // value={test.testData.date}
                 onChange={handleInputChange}
               />
             </Form.Group>

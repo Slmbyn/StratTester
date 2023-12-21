@@ -13,6 +13,10 @@ from django.contrib.auth import authenticate, login, logout
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
 
+from rest_framework.decorators import api_view, parser_classes
+from rest_framework.parsers import JSONParser
+from rest_framework.response import Response
+
 
 STOCK_API_KEY = config('STOCK_API_KEY')
 
@@ -50,9 +54,10 @@ def register_view(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['POST'])
+@api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def logout_view(request):
+    print('REQUEST LOGOUT', request)
     request.auth.delete()
     logout(request)
     return Response({'message': 'Successfully logged out.'}, status=status.HTTP_200_OK)
@@ -82,34 +87,78 @@ class ResultView(viewsets.ModelViewSet):
     serializer_class = ResultSerializer
     queryset = Result.objects.all()
 
+from rest_framework.decorators import api_view, parser_classes
+from rest_framework.parsers import JSONParser
+from rest_framework.response import Response
 
 @api_view(['POST'])
+@parser_classes([JSONParser])
 def test_strategy(request):
     if request.method == 'POST':
-        # take request & create the test instance in the db
-        test_data = JSONParser().parse(request['testData'])
+        print('REQUEST::', request.data)
+        
+        # The request.data is already parsed as JSON if you use JSONParser
+        test_data = request.data.get('data', {})
         print('testData is:', test_data)
-        user_data = JSONParser().parse(request['userId'])
+        user_data = request.data.get('user', {})
         print('userData is:', user_data)
+        
         test_serializer = TestSerializer(data=test_data)
         if test_serializer.is_valid():
             test_instance = test_serializer.save()
+            
             # invoke trade strategy here
             results = orb_strategy(test_data)
-        # Adds the Test_id to the Result instance
-            results['test'] = test_instance.id
-            print('RESULT IN VIEW:', results)
-        # Probably a line to add user_id to Result instance
-            results['user'] = user_data.id
             
-            # Save Result to database
+            # Adds the Test_id to the Result instance
+            results['test'] = test_instance.id
+            
+            # Probably a line to add user_id to Result instance
+            results['user'] = user_data
+            print('RESULT IN VIEW:', results)
+            
+            # Save Result to the database
             result_serializer = ResultSerializer(data=results)
             print('IS RESULT VALID?', result_serializer.is_valid())
             if result_serializer.is_valid():
                 result_serializer.save()
+            
             # Send result data for React
-            return JsonResponse(results, status=status.HTTP_201_CREATED)
+            return Response(results, status=status.HTTP_201_CREATED)
+
     return Response({'message': 'Invalid request.'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+# @api_view(['POST'])
+# def test_strategy(request):
+#     if request.method == 'POST':
+#         print('REQUEST::', request.data)
+#         # take request & create the test instance in the db
+#         test_data = JSONParser().parse(request.data['data'])
+#         print('testData is:', test_data)
+#         user_data = JSONParser().parse(request.data['user'])
+#         print('userData is:', user_data)
+#         test_serializer = TestSerializer(data=test_data)
+#         if test_serializer.is_valid():
+#             test_instance = test_serializer.save()
+#             print('test_instance:', test_instance)
+#             # invoke trade strategy here
+#             results = orb_strategy(test_data)
+#             print('RESULTS ARE', results)
+#         # Adds the Test_id to the Result instance
+#             results['test'] = test_instance.id
+#             print('RESULT IN VIEW:', results)
+#         # Probably a line to add user_id to Result instance
+#             results['user'] = user_data
+            
+#             # Save Result to database
+#             result_serializer = ResultSerializer(data=results)
+#             print('IS RESULT VALID?', result_serializer.is_valid())
+#             if result_serializer.is_valid():
+#                 result_serializer.save()
+#             # Send result data for React
+#             return JsonResponse(results, status=status.HTTP_201_CREATED)
+#     return Response({'message': 'Invalid request.'}, status=status.HTTP_400_BAD_REQUEST)
 
 
 
