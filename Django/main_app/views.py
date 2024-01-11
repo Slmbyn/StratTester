@@ -129,6 +129,27 @@ def test_strategy(request):
     return Response({'message': 'Invalid request.'}, status=status.HTTP_400_BAD_REQUEST)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # @api_view(['POST'])
 # def test_strategy(request):
 #     if request.method == 'POST':

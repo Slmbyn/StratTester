@@ -8,15 +8,12 @@ from rest_framework.parsers import JSONParser
 import requests
 from decouple import config
 from rest_framework.response import Response
-
-
 STOCK_API_KEY = config('STOCK_API_KEY')
 
 
 
 
 def orb_strategy(test_data):
-    # SEND API REQ USING SUBMITTED TEST DATA
     ticker = test_data["ticker"]
     date = test_data["date"]
     api_url = f'https://api.polygon.io/v2/aggs/ticker/{ticker}/range/5/minute/{date}/{date}?adjusted=true&sort=asc&limit=120&apiKey={STOCK_API_KEY}'

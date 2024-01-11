@@ -10,14 +10,7 @@ export default function Test({ user }){
         ticker: '',
         date: ''
     })
-  //   const [test, setTest] = useState({
-  //     testData: {
-  //       strategy: '',
-  //       ticker: '',
-  //       date: ''
-  //   },
-  //     userId: user
-  // })
+
 
     const handleInputChange = (evt) => {
         setTest({...test, [evt.target.name]: evt.target.value})
