@@ -1,3 +1,4 @@
+![ERD Chart](README_images/o.png)
 # Description
 Meet StratTester, the ultimate ally for traders. Stay informed on stock news while supercharging your strategy testing. Effortlessly save time with streamlined backtesting, optimizing your performance. Elevate your trading game with efficiency and precision—welcome to a new era of strategic success with StratTester.
 # Tech Stack
