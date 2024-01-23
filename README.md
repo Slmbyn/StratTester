@@ -28,10 +28,10 @@ Due to the restrictions of the 3rd party APIs that are used in this project, I c
 - AAU I want to be able to select a stock, a trading strategy and date then see what the result (profit/loss) would have been
 - AAU I want to view my past tests
 
-<img src="README_images/strat-login.png" alt="login page" width="240"/>
-<img src="README_images/strat-news.png" alt="home page" width="240"/>
-<img src="README_images/strat-test.png" alt="test form" width="240"/>
-<img src="README_images/strat-results.png" alt="results page" width="240"/>
+<img src="README_images/strat-login.png" alt="login page" width="350"/>
+<img src="README_images/strat-news.png" alt="home page" width="350"/>
+<img src="README_images/strat-test.png" alt="test form" width="350"/>
+<img src="README_images/strat-results.png" alt="results page" width="350"/>
 
 
 # Goals
