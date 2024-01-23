@@ -14,10 +14,10 @@ React-Bootstrap
 <img src="README_images/RESTfulchart.png" alt="RESTful Routing Chart" width="300"/>
 
 # Wireframes
-<img src="Wireframes/home.png" alt="Home Page" width="200"/>
-<img src="Wireframes/createtest.png" alt="Create Test" width="200"/>
-<img src="Wireframes/testresult.png" alt="Test Result" width="200"/>
-<img src="Wireframes/pasttests.png" alt="Past Tests" width="200"/>
+<img src="Wireframes/home.png" alt="Home Page" width="300"/>
+<img src="Wireframes/createtest.png" alt="Create Test" width="300"/>
+<img src="Wireframes/testresult.png" alt="Test Result" width="300"/>
+<img src="Wireframes/pasttests.png" alt="Past Tests" width="300"/>
 
 # Walk-Through of the App
 Due to the restrictions of the 3rd party APIs that are used in this project, I cannot deploy it. However, I can walk you through the user stories.
@@ -28,10 +28,10 @@ Due to the restrictions of the 3rd party APIs that are used in this project, I c
 - AAU I want to be able to select a stock, a trading strategy and date then see what the result (profit/loss) would have been
 - AAU I want to view my past tests
 
-<img src="README_images/strat-login.png" alt="login page" width="350"/>
-<img src="README_images/strat-news.png" alt="home page" width="350"/>
-<img src="README_images/strat-test.png" alt="test form" width="350"/>
-<img src="README_images/strat-results.png" alt="results page" width="350"/>
+<img src="README_images/strat-login.png" alt="login page" width="400"/>
+<img src="README_images/strat-news.png" alt="home page" width="400"/>
+<img src="README_images/strat-test.png" alt="test form" width="400"/>
+<img src="README_images/strat-results.png" alt="results page" width="400"/>
 
 
 # Goals
