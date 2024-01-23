@@ -8,20 +8,31 @@ Javascript |
 PostgreSQL | 
 React-Bootstrap 
 # ERD
-![ERD Chart](README_images/ERD.png)
+<img src="README_images/ERD.png" alt="ERD Chart" width="350"/>
 
 # RESTful Routing Chart
-![RESTful Routing Chart](README_images/RESTfulchart.png)
+<img src="README_images/RESTfulchart.png" alt="RESTful Routing Chart" width="300"/>
 
 # Wireframes
-![Home Page](Wireframes/home.png)
-![Create Test](Wireframes/createtest.png)
-![Test Result](Wireframes/testresult.png)
-![Past Tests](Wireframes/pasttests.png)
-# User Stories
-- AAU I want to be able to view stock related news
-- AAU I want to be able to select a stock, trading strategy and date then see what the result (profit/loss) would have been
+<img src="Wireframes/home.png" alt="Home Page" width="200"/>
+<img src="Wireframes/createtest.png" alt="Create Test" width="200"/>
+<img src="Wireframes/testresult.png" alt="Test Result" width="200"/>
+<img src="Wireframes/pasttests.png" alt="Past Tests" width="200"/>
+
+# Walk-Through of the App
+Due to the restrictions of the 3rd party APIs that are used in this project, I cannot deploy it. However, I can walk you through the user stories.
+
+### User Stories:
+- AAU I want to be able to log in and out of my account
+- AAU I want to be able to current news
+- AAU I want to be able to select a stock, a trading strategy and date then see what the result (profit/loss) would have been
 - AAU I want to view my past tests
+
+<img src="README_images/strat-login.png" alt="login page" width="240"/>
+<img src="README_images/strat-news.png" alt="home page" width="240"/>
+<img src="README_images/strat-test.png" alt="test form" width="240"/>
+<img src="README_images/strat-results.png" alt="results page" width="240"/>
+
 
 # Goals
 ## MVP
