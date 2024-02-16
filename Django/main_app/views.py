@@ -104,6 +104,7 @@ def test_strategy(request):
             # Save Result to the database
             result_serializer = ResultSerializer(data=results)
             print('IS RESULT VALID?', result_serializer.is_valid())
+            print('RESULT SERIALIZER:', result_serializer)
             if result_serializer.is_valid():
                 result_serializer.save()
             
