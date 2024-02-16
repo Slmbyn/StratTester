@@ -63,22 +63,6 @@ def logout_view(request):
     return Response({'message': 'Successfully logged out.'}, status=status.HTTP_200_OK)
 
 
-# def login_view(request):
-#     if request.method == 'POST':
-#         username = request.POST.get('username')
-#         password = request.POST.get('password')
-#         # authenticate
-#         user = authenticate(request, username=username, password=password)
-#         if user is None:
-#             context = {'error': 'Invalid username or password'}
-#         login(request, user)
-#         # add a line here sending user info to React
-
-
-
-
-
-
 class TestView(viewsets.ModelViewSet):
     serializer_class = TestSerializer
     queryset = Test.objects.all()
@@ -113,7 +97,7 @@ def test_strategy(request):
             # Adds the Test_id to the Result instance
             results['test'] = test_instance.id
             
-            # Probably a line to add user_id to Result instance
+            # add user_id to Result instance
             results['user'] = user_data
             print('RESULT IN VIEW:', results)
             
