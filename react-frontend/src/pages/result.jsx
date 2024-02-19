@@ -27,6 +27,11 @@ export default function Result({ user }) {
       .catch((err) => {
         console.log(err);
       });
+
+    // checking if this component already has the strat name & ticker in it. if so, render them on Results page
+    console.log(`test in result.jsx ${test}`)
+    console.log(`result in result.jsx ${result}`)
+
   }, []);
 
   return (

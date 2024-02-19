@@ -90,12 +90,21 @@ def test_strategy(request):
         test_serializer = TestSerializer(data=test_data)
         if test_serializer.is_valid():
             test_instance = test_serializer.save()
-            
+
+            '''
+            Use the test_id and send the strat & ticker to frontend to be rendered on results page
+            ideas:
+                - send it with the result
+                - send it in its own response 
+            '''
+            print(f'test_instancE: {test_instance}')
+
             # invoke trade strategy here
             results = orb_strategy(test_data)
             
             # Adds the Test_id to the Result instance
             results['test'] = test_instance.id
+            
             
             # add user_id to Result instance
             results['user'] = user_data
